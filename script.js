@@ -11,21 +11,33 @@ function createGrid(number) {
         }
         container.appendChild(row);
     }
+    addEvents();
+}
+
+function addEvents() {
+    const rows = document.querySelectorAll(".row-div");
+    console.log(rows);
+    for (let row of rows) {
+        row.addEventListener("mouseover", (e) => {
+            let target = event.target;
+            if (target && container.contains(target) && !(target == row)) {
+                target.classList.add("inked");
+            }
+        });
+    }
 }
 
 const container = document.querySelector(".container");
-createGrid(16);
 
-const rows = document.querySelectorAll(".row-div");
-console.log(rows);
-for (let row of rows) {
-    row.addEventListener("mouseover", (e) => {
-        let target = event.target;
-        if (target && container.contains(target) && !(target == row)) {
-            console.log(target);
-            target.classList.add("inked");
-        }
-    });
+function main() {
+    createGrid(16);
 }
 
+const button = document.querySelector("#size-modification");
+button.addEventListener("click", () => {
+    const sizeNumber = prompt("Number of squares per side?")
+    container.remove();
+    createGrid(+sizeNumber);
+})
 
+main();
