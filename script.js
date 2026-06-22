@@ -6,7 +6,7 @@ function addContainer() {
     const container = document.createElement("div");
     container.classList.add("container");
 
-    content.appendChild(container)
+    content.appendChild(container);
 
     return container;
 }
@@ -45,7 +45,7 @@ function main() {
 
     const resizeBtn = document.querySelector("#resize");
     resizeBtn.addEventListener("click", () => {
-        const sizeNumber = prompt("Number of squares per side?")
+        let sizeNumber = Number(prompt("Number of squares per side?"));
         
         if (sizeNumber > 100) {
             sizeNumber = 100;
@@ -53,8 +53,8 @@ function main() {
 
         const container = document.querySelector(".container");
         container.remove();
-        createGrid(+sizeNumber);
-    })
+        createGrid(sizeNumber);
+    });
 }
 
 main();

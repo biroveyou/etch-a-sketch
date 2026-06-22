@@ -1,7 +1,16 @@
+.menu,
 .content,
 .container,
 .row-div {
     display:flex;
+}
+
+.menu {
+    justify-content: center;
+    gap: 100px;
+}
+button {
+    align-self: center;
 }
 
 .content {
@@ -19,11 +28,10 @@
 }
 
 .square-div {
-    display: flex;
     flex: 1 1 auto;
     width: auto;
     height: auto;
-    background-color: blue;
+    background-color: rgb(161, 161, 161);
 }
 
 .inked {
