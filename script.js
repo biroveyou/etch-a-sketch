@@ -29,12 +29,17 @@ function createGrid(number) {
 
 function addEvents(canvas) {
     const rows = document.querySelectorAll(".row-div");
-    console.log(rows);
     for (let row of rows) {
         row.addEventListener("mouseover", (e) => {
             let target = event.target;
             if (target && canvas.contains(target) && !(target == row)) {
                 target.classList.add("inked");
+                if (target.style["opacity percent"]) {
+                    if (target.style["opacity percent"] < 1) {target.style["opacity percent"] += 0.1;};
+                } else {
+                    target.style["opacity percent"] = 0.1;
+                }
+                target.style.opacity = target.style["opacity percent"];
             }
         });
     }
