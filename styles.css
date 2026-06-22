@@ -1,16 +1,27 @@
+.content,
 .container,
 .row-div {
     display:flex;
 }
 
-.container {
-    flex-direction: column;
+.content {
     justify-content: center;
-    align-items: center;
-    
+}
+
+.container {
+    width: 400px;
+    height: 400px;
+    flex-direction: column;
+}
+
+.row-div {
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
 .square-div {
+    flex-grow: 1;
+    flex-shrink: 1;
     width: 20px;
     height: 20px;
     background-color: blue;

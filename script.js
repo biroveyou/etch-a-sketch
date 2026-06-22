@@ -1,12 +1,12 @@
 "use strict";
 
 function addContainer() {
-    const body = document.querySelector("body");
+    const content = document.querySelector(".content");
 
     const container = document.createElement("div");
     container.classList.add("container");
 
-    body.appendChild(container)
+    content.appendChild(container)
 
     return container;
 }
@@ -42,11 +42,17 @@ function addEvents(canvas) {
 
 function main() {
     createGrid(16);
-    const btn = document.querySelector("#resize");
-    btn.addEventListener("click", () => {
+
+    const resizeBtn = document.querySelector("#resize");
+    resizeBtn.addEventListener("click", () => {
         const sizeNumber = prompt("Number of squares per side?")
-        container.remove();
         
+        if (sizeNumber > 100) {
+            sizeNumber = 100;
+        }
+
+        const container = document.querySelector(".container");
+        container.remove();
         createGrid(+sizeNumber);
     })
 }
